@@ -29,14 +29,14 @@ x = {}
 y = {}
 local ax = {}
 local ay = {}
-type = {}
+typex = {} -- ARE YOU HAPPY NOW OPENOS???
  
 function removetable(i)
   table.remove(x, i)
   table.remove(y, i)
   table.remove(ax, i)
   table.remove(ay, i)
-  table.remove(type, i)
+  table.remove(typex, i)
 end
  
 update()
@@ -49,9 +49,10 @@ while true do
     table.insert(y, h/2)
     table.insert(ax, math.random() * 2 - 1)
     table.insert(ay, math.random() * 2 - 1)
-    table.insert(type, math.random(1, 2))
+    table.insert(typex, math.random(1, 2))
   end
   if kb.isKeyDown(0x10) then
+    gpu.setResolution(160, 50)
     os.exit()
   end
   mplayer()
@@ -62,15 +63,24 @@ while true do
   if #x ~= 0 then
     local i = 1
     while i <= #x do
+      if playerx + 0.4 > x[i] then --scary collision check
+        if playerx - 0.4 < x[i] then
+          if playery + 0.4 > y[i] then
+            if playery - 0.4 < y[i] then
+              print("AAAAAAAAAAAAAAAAAAAA")
+            end
+          end
+        end
+      end
       x[i] = x[i] + ax[i]
       y[i] = y[i] + ay[i]
       if x[i] < 11 or x[i] > 60 or y[i] < 7 or y[i] > h-4 then
         removetable(i)
       else
         gpu.fill(x[i], y[i], 1, 1, "▮")
-        i=i+1
+      i=i+1
       end
     end
   end
-  os.sleep(0.1)
+  os.sleep(0.05)
 end
