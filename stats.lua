@@ -4,7 +4,7 @@ local component = require("component")
 local gpu = component.gpu
 local term = require("term")
  
-sp = 2
+sc = 2
 lives = 2
 score = 0
 hs = 0
