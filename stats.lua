@@ -22,6 +22,17 @@ function update()
   gpu.setForeground(0x800080)
   for i = 1, 8-ix do
     io.write("♥")
+  end
+  gpu.setForeground(0x00BF00)
+  term.setCursor(70, 12)
+  io.write("SPELL CARD: ")
+  for i = 1, sc do
+    io.write("★")
+    ix = i
+  end
+  gpu.setForeground(0x000040)
+  for i = 1, 8-ix do
+    io.write("★")
   end 
 end
  
