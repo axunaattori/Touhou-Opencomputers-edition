@@ -63,14 +63,8 @@ while true do
   if #x ~= 0 then
     local i = 1
     while i <= #x do
-      if playerx + 0.4 > x[i] then --scary collision check
-        if playerx - 0.4 < x[i] then
-          if playery + 0.4 > y[i] then
-            if playery - 0.4 < y[i] then
-              print("AAAAAAAAAAAAAAAAAAAA")
-            end
-          end
-        end
+      if playerx + 0.4 > x[i] and playerx - 0.4 < x[i] and playery + 0.4 > y[i] and playery - 0.4 < y[i] then
+        print("AAAAAAAAAAAAAAAAAAAA")
       end
       x[i] = x[i] + ax[i]
       y[i] = y[i] + ay[i]
