@@ -50,12 +50,24 @@ drawplayer()
 function mplayer()
   if kb.isKeyDown(0xC8) then
     playery = playery - speed
+    if playery < 8 then
+      playery = playery + speed
+    end
   elseif kb.isKeyDown(0xD0) then
     playery = playery + speed
+    if playery > 44 then
+      playery = playery - speed
+    end
   end
   if kb.isKeyDown(0xCB) then
     playerx = playerx - speed
+    if playerx < 12 then
+      playerx = playerx + speed
+    end
   elseif kb.isKeyDown(0xCD) then
     playerx = playerx + speed
+    if playerx > 58 then
+      playerx = playerx - speed 
+    end
   end
 end
