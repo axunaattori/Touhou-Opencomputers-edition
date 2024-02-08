@@ -8,7 +8,13 @@ local kb = require("keyboard")
 playerx = 30
 playery = 40
  
+inv = 0
+dead = 0
+ 
 speed = 1
+ 
+function deathp() -- fix this shit wtf am i making, actually rewrite it fully fuck it    
+end
  
 function drawplayer()
   term.setCursor(playerx-1, playery-1)
@@ -47,7 +53,7 @@ end
  
 drawplayer()
  
-function mplayer()
+function mplayer() -- todo: fix the wall detection
   if kb.isKeyDown(0xC8) then
     playery = playery - speed
     if playery < 8 then
