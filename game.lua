@@ -4,8 +4,8 @@ local term = require("term")
 local component = require("component")
 local gpu = component.gpu
 local kb = require("keyboard")
-local player = require("player")
 local stats = require("stats")
+local player = require("player")
  
 gpu.setResolution(105, 50)
  
@@ -39,7 +39,12 @@ function removetable(i)
   table.remove(typex, i)
 end
  
+de = 1
+ 
 update()
+updatescore()
+updatepower()
+updatepoints()
  
 while true do
   gpu.setBackground(0x000000)
@@ -64,7 +69,15 @@ while true do
     local i = 1
     while i <= #x do
       if playerx + 0.4 > x[i] and playerx - 0.4 < x[i] and playery + 0.4 > y[i] and playery - 0.4 < y[i] then
-        print("AAAAAAAAAAAAAAAAAAAA")
+        x = {}
+        y = {}
+        ax = {}
+        ay = {}
+        typex = {}
+        deathp() -- fix needed :(
+        lives = lives - 1
+        update()
+        break
       end
       x[i] = x[i] + ax[i]
       y[i] = y[i] + ay[i]
